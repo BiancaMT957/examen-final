@@ -15,5 +15,6 @@ sudo docker compose build
 sudo docker-compose pss
 ```
 
-
+**Firma**
+"Declaro que esta entrega fue realizada de forma individual, sin asistencia externa, sin herramientas de generación automática, y cumpliendo con todas las reglas del examen"
 
