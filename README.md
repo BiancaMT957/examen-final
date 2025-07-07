@@ -1,2 +1,13 @@
 # examen-final
-Examen final  de desarrollo de software
+
+
+**Ejecución**
+
+```
+Desde la raiz del proyecto:
+sudo docker compose build
+sudo docker-compose pss
+```
+
+
+

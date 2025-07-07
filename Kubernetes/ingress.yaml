@@ -1,0 +1,31 @@
+name: ingress
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+  pull_request:
+    branches:
+      - examen
+
+jobs:
+  duplicity-jscpd:
+    name: "Duplicidad con jscpd"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar jscpd
+        run: npm install -g jscpd
+      - name: Ejecutar jscpd (yml, scripts)
+        run: |
+          jscpd --threshold 30 --min-tokens 10 --pattern "**/*.{yml,sh,py}" --reporters console ./scripts ./tests  
+  lint:
+    name: "Linters: flake8, tflint"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Legacy-app
+        run: |
+          curl -s http://<minikube-ip>/app a legacy-app
+      - name: new-microservice
+        run: |
+          curl -s http://<minikube-ip>/api/v2
